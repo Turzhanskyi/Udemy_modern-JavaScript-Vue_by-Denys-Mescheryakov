@@ -1171,16 +1171,16 @@
 
 
 
-const car = {
-  brand: 'Audi',
-  year: 2019,
-  get age() {
-    return `Мышина выпущена в ${this.year}`;
-  },
-  set age(value) {
-    this.year = value;
-  },
-};
+// const car = {
+//   brand: 'Audi',
+//   year: 2019,
+//   get age() {
+//     return `Мышина выпущена в ${this.year}`;
+//   },
+//   set age(value) {
+//     this.year = value;
+//   },
+// };
 
 // Object.defineProperty(car, 'age', {
 //   // configurable: false,
@@ -1191,15 +1191,26 @@ const car = {
 //   },
 // });
 
-Object.defineProperty(window, 'globalVar', {
-  set: function (value) {
-    console.log(value);
-    debugger;
-  },
-});
+// Object.defineProperty(window, 'globalVar', {
+//   set: function (value) {
+//     console.log(value);
+//     debugger;
+//   },
+// });
 
-function foo() {
-  globalVar = 10;
-}
+// function foo() {
+//   globalVar = 10;
+// }
 
-foo();
+// foo();
+
+
+
+//                              Тема 25. Объекты обертки. Важные нюансы.
+
+
+let str = 'Hello world';
+// console.dir(String('hello').slice(1, -1));
+const strObj = new String('hello');
+console.log(strObj);
+// console.dir(Number);
