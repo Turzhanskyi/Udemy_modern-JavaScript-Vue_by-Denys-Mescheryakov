@@ -694,6 +694,37 @@
 //                              Тема 17. Функции высшего порядка. Callback.
 
 
+
+// function highOrder(value, callback) {
+//   const arrFromStr = value.split(' ');
+//   console.log(arrFromStr);
+// }
+
+// function myCallback(char) {}
+
+// highOrder('Denis Mescheryakov');
+
+// function question(job) {
+//   const jobsDictionary = {
+//     developer: "Что такое JS?",
+//     teacher: "Какой предмет вы преподаете?"
+//   };
+
+//   return function(name) {
+//     return jobsDictionary[job] + " " + name;
+//   };
+// }
+
+// const developerQustion = question("developer");
+// console.log(developerQustion);
+// console.log(developerQustion("Denis"));
+
+
+
+//                              Тема 18. Что такое this. Контекст вызова функции.
+
+
+
 function getThis() {
   console.log(this);
 }
@@ -720,7 +751,7 @@ const prod1 = {
   },
   info: {
     information: ["2.3ghz"],
-    getInfo: function() {
+    getInfo: function () {
       console.log(this);
     }
   }

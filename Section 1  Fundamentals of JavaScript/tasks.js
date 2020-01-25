@@ -474,7 +474,91 @@
 
 
 
-// 17.1. Создать объект, который описывает ширину и высоту
+// 17.1. Создать две функции и дать им осмысленные названия:
+// - первая функция принимает массив и колбэк (одна для всех вызовов)
+// - вторая функция (колбэк) обрабатывает каждый элемент массива (для каждого вызова свой callback)
+
+// Первая функция возвращает строку “New value: ” и результат обработки:
+// firstFunc([‘my’, ‘name’, ‘is’, ‘Trinity’], handler1) → “New value: MyNameIsTrinity”
+// firstFunc([10, 20, 30], handler2) → “New value: 100, 200, 300,”
+// firstFunc([{age: 45, name: ‘Jhon’}, {age: 20, name: ‘Aaron’}], handler3) →
+// “New value: Jhon is 45, Aaron is 20,”
+// firstFunc([‘abc’, ‘123’], handler4) → “New value: cba, 321,” // строки инвертируются
+
+// Подсказка: secondFunc должна быть представлена функцией, которая принимает
+// один аргумент (каждый элемент массива) и возвращает результат его обработки
+
+// function firstFunc(arr, handler) {
+//   let res = 'New value: ';
+
+//   for (let i = 0; i < arr.length; i++) {
+//     res += handler(arr[i]);
+//   }
+//   return res;
+// }
+
+// const resTask1 = firstFunc(['my', 'name', 'is', 'Vitalii'], function (item) {
+//   return item[0].toUpperCase() + item.slice(1);
+// });
+
+// console.log(resTask1);
+
+// const resTask2 = firstFunc([10, 20, 30], function (item) {
+//   return item * 10 + ' ';
+// });
+
+// console.log(resTask2);
+
+// const resTask3 = firstFunc([{
+//   age: 38,
+//   name: 'Vitalii'
+// }, {
+//   age: 20,
+//   name: 'Aaron'
+// }], function (item) {
+//   // return item.name + ' is ' + item.age + ' , ';    or
+//   return `${item.name} is ${item.age}, `;
+// });
+
+// console.log(resTask3);
+
+// const resTask4 = firstFunc(['abc', '123'], function (item) {
+//   return item
+//     .split("")
+//     .reverse()
+//     .join("") + ' ';
+// });
+
+// console.log(resTask4);
+
+
+// 17.2. Написать аналог метода every. Создайте функцию every, она должна принимать первым аргументом массив чисел (обязательно проверьте что передан массив) вторым аргументом callback (обязательно проверьте что передана функция)
+// функция должна возвращать true или false в зависимости от результата вызова callback (проверить число больше 5). Callback  должен принимать один элемент массива, его индекс в массиве и весь массив. 
+
+// Что такое метод every можно прочитать здесь и ниже в презентации тоже о них идет речь.
+
+// function every(arr, callback) {
+//   for (let i = 0; i < arr.length; i++) {
+//     if (!callback(arr[i])) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// const resTask5 = every([1, 3, 7, 23, 21, 'abc'], function (num) {
+//   return typeof num === 'number';
+// });
+
+// console.log(resTask5);
+
+
+
+//                              Тема 18. Что такое this. Контекст вызова функции.
+
+
+
+// 18.1. Создать объект, который описывает ширину и высоту
 // прямоугольника, а также может посчитать площадь фигуры:
 // const rectangle = {width:..., height:..., getSquare:...};
 
@@ -488,7 +572,7 @@ const rectangle = {
 
 console.log(rectangle.getSquare());
 
-// 17.2. Создать объект, у которого будет цена товара и его скидка, а также
+// 18.2. Создать объект, у которого будет цена товара и его скидка, а также
 // два метода: для получения цены и для расчета цены с учетом скидки:
 // const price = {
 //     price: 10,
@@ -514,7 +598,7 @@ const price = {
 console.log(price.getPrice());
 console.log(price.getPriceWithDiscount());
 
-// 17.3. Создать объект, у которого будет поле высота и метод “увеличить
+// 18.3. Создать объект, у которого будет поле высота и метод “увеличить
 // высоту на один”. Метод должен возвращать новую высоту:
 // object.height = 10;
 // object.inc(); // придумать свое название для метода
@@ -531,7 +615,7 @@ console.log(object.height);
 console.log(object.getHeightPlusOne());
 console.log(object.height);
 
-// 17.4. Создать объект “вычислитель”, у которого есть числовое свойство
+// 18.4. Создать объект “вычислитель”, у которого есть числовое свойство
 // “значение” и методы “удвоить”, “прибавить один”, “отнять один”.
 // Методы можно вызывать через точку, образуя цепочку методов:
 // const numerator = {
@@ -560,7 +644,7 @@ const numerator = {
 
 
 
-// 17.5. Создать объект с розничной ценой и количеством продуктов. Этот
+// 18.5. Создать объект с розничной ценой и количеством продуктов. Этот
 // объект должен содержать метод для получения общей стоимости
 // всех товаров (цена * количество продуктов)
 
@@ -574,7 +658,7 @@ let prod1 = {
 
 console.log(prod1.getTotalPrice());
 
-// 17.6. Создать объект из предыдущей задачи. Создать второй объект,
+// 18.6. Создать объект из предыдущей задачи. Создать второй объект,
 // который описывает количество деталей и цену за одну деталь. Для
 // второго объекта нужно узнать общую стоимость всех деталей, но
 // нельзя создавать новые функции и методы. Для этого
@@ -587,7 +671,7 @@ let prod2 = {
 
 console.log(prod1.getTotalPrice.call(prod2));
 
-// 17.7. Даны объект и функция:
+// 18.7. Даны объект и функция:
 // let sizes = {width: 5, height: 10},
 // getSquare = function () {return this.width * this.height};
 // Не изменяя функцию или объект, получить результат функции
@@ -603,7 +687,7 @@ let sizes = {
 
 console.log(getSquare.call(sizes));
 
-// 17.8. let element = {
+// 18.8. let element = {
 //   height: 25,
 //   getHeight: function () {return this.height;}
 // };
