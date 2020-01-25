@@ -118,100 +118,140 @@
 
 
 
-let value;
+// let value;
 
 // Number to string
-value = String(10);
-value = String(10 + 40);
-value = (40).toString();
+// value = String(10);
+// value = String(10 + 40);
+// value = (40).toString();
 
 // Boolean to string
-value = String(false);
+// value = String(false);
 // Array to string
-value = String([1, 2, 3]);
+// value = String([1, 2, 3]);
 // Object to string
-value = String({
-  name: 'Denis'
-});
+// value = String({
+//   name: 'Denis'
+// });
 
-value = 30 + '' + undefined;
-value = 30 * '5';
-value = false + undefined;
+// value = 30 + '' + undefined;
+// value = 30 * '5';
+// value = false + undefined;
 
 // String to number
-value = Number('23');
-value = Number(false);
-value = Number(null);
-value = Number('false');
-value = Number([1, 2, 3]);
+// value = Number('23');
+// value = Number(false);
+// value = Number(null);
+// value = Number('false');
+// value = Number([1, 2, 3]);
 
-value = parseInt('200px');
-value = parseFloat('200.212px');
+// value = parseInt('200px');
+// value = parseFloat('200.212px');
 
 // Boolean
-value = Boolean('hello');
-value = Boolean('');
-value = Boolean(-100);
-value = Boolean(0);
-value = Boolean(undefined);
-value = Boolean(null);
-value = Boolean({});
-value = Boolean([]);
+// value = Boolean('hello');
+// value = Boolean('');
+// value = Boolean(-100);
+// value = Boolean(0);
+// value = Boolean(undefined);
+// value = Boolean(null);
+// value = Boolean({});
+// value = Boolean([]);
 
-console.log(value);
-console.log(typeof value);
+// console.log(value);
+// console.log(typeof value);
 
-let d = new Date();
+// let d = new Date();
 
 // get string representation
-let str = d.toString(); // 'Wed Jan 17 2018 16:15:42'
-console.log(str);
+// let str = d.toString(); // 'Wed Jan 17 2018 16:15:42'
+// console.log(str);
 
 // get numeric representation, num of milliseconds since Unix epoch
-let num = d.valueOf(); // 1516198542525
-console.log(num);
+// let num = d.valueOf(); // 1516198542525
+// console.log(num);
 
 // compare with a string representation
 // true because d is converted to same string
-console.log(d == str); // true
+// console.log(d == str); // true
 
 // compare with numeric representation
 // false, because d is not converted to a number via valueOf()
-console.log(d == num); // false
+// console.log(d == num); // false
 
 // Result is 'Wed Jan 17 2018 16:15:42Wed Jan 17 2018 16:15:42'
 // '+' same to '==' triggers default conversion mode
-console.log(d + d);
+// console.log(d + d);
 
 // Result is 0, since '-' operator explicitly triggers numeric conversion, not a default one
-console.log(d - d);
+// console.log(d - d);
 
-function ToPrimitive(input, preferredType) {
+// function ToPrimitive(input, preferredType) {
 
-  switch (preferredType) {
-    case Number:
-      return toNumber(input);
-      break;
-    case String:
-      return toString(input);
-      break
-    default:
-      return toNumber(input);
-  }
+//   switch (preferredType) {
+//     case Number:
+//       return toNumber(input);
+//       break;
+//     case String:
+//       return toString(input);
+//       break
+//     default:
+//       return toNumber(input);
+//   }
 
-  function isPrimitive(value) {
-    return value !== Object(value);
-  }
+//   function isPrimitive(value) {
+//     return value !== Object(value);
+//   }
 
-  function toString() {
-    if (isPrimitive(input.toString())) return input.toString();
-    if (isPrimitive(input.valueOf())) return input.valueOf();
-    throw new TypeError();
-  }
+//   function toString() {
+//     if (isPrimitive(input.toString())) return input.toString();
+//     if (isPrimitive(input.valueOf())) return input.valueOf();
+//     throw new TypeError();
+//   }
 
-  function toNumber() {
-    if (isPrimitive(input.valueOf())) return input.valueOf();
-    if (isPrimitive(input.toString())) return input.toString();
-    throw new TypeError();
-  }
-}
+//   function toNumber() {
+//     if (isPrimitive(input.valueOf())) return input.valueOf();
+//     if (isPrimitive(input.toString())) return input.toString();
+//     throw new TypeError();
+//   }
+// }
+
+
+
+//                              Тема 8. Числа
+
+
+
+// Numbers
+const num1 = 10;
+const num2 = 20;
+let value;
+
+// + * / - %
+value = num1 + num2;
+value = value + 100;
+value += 100;
+// value = 5 % 2;
+value++;
+value--;
+++value;
+--value;
+
+value = 0.6 + 0.7;
+// value = parseFloat(value.toFixed(1));
+value = (0.6 * 10 + 0.7 * 10) / 10;
+
+// Math
+value = Math.PI;
+value = Math.random();
+value = Math.round(2.4);
+value = Math.ceil(2.1);
+value = Math.floor(2.9);
+value = Math.min(2, 12, 15, 0, 12);
+
+value = Math.floor(Math.random() * 10 + 1);
+
+const arr = ['black', 'red', 'yellow', 'pink', 'white', 'blue', 'orange', 'green'];
+value = Math.floor(Math.random() * arr.length);
+
+// console.log(value, arr[value]);
