@@ -304,14 +304,14 @@
 // 14.1. На основе строки “i am in the easycode” сделать новую строку где первые буквы каждого слова 
 // будут в верхнем регистре. Использовать for или while.
 
-const str = 'i am in the easycode';
-let newStr = '';
+// const str = 'i am in the easycode';
+// let newStr = '';
 
-for (let i = 0; i < str.length; i++) {
-  str[i - 1] === ' ' || i === 0 ? newStr += str[i].toUpperCase() : newStr += str[i];
-}
+// for (let i = 0; i < str.length; i++) {
+//   str[i - 1] === ' ' || i === 0 ? newStr += str[i].toUpperCase() : newStr += str[i];
+// }
 
-console.log(newStr);
+// console.log(newStr);
 
 // 14.2. Дана строка “tseb eht ma i”. Используя циклы, сделать строку-перевертыш (то есть последняя буква становится первой, предпоследняя - второй итд).
 
@@ -325,18 +325,18 @@ console.log(newStr);
 // 14.4. На основе строки “JavaScript is a pretty good language” сделать новую строку,
 // где каждое слово начинается с большой буквы, а пробелы удалены. Использовать for.
 
-const str1 = 'JavaScript is a pretty good language';
-let newStr1 = '';
+// const str1 = 'JavaScript is a pretty good language';
+// let newStr1 = '';
 
-for (let i = 0; i < str1.length; i++) {
-  if (str1[i] === ' ') {
-    continue
-  } else {
-    newStr1 += str[i];
-  }
-}
+// for (let i = 0; i < str1.length; i++) {
+//   if (str1[i] === ' ') {
+//     continue
+//   } else {
+//     newStr1 += str[i];
+//   }
+// }
 
-console.log(newStr1);
+// console.log(newStr1);
 
 // 14.5. Найти все нечетные числа в массиве от 1 до 15 включительно и вывести их в консоль. Массив [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] Использовать for of.
 
@@ -349,3 +349,121 @@ console.log(newStr1);
 //      age: 29
 // }
 // Перебрать объект и если значение в свойстве это строка то переписать ее всю в верхнем регистре. Использовать for in.
+
+
+
+//                              Тема 15. Введение в функции
+
+
+
+// 15.1. Создать функцию multiply, которая будет принимать любое количество чисел и возвращать их произведение: multiply(1,2,3) = 6 (1*2*3)
+// Если нет ни одного аргумента, вернуть ноль: multiply() // 0
+
+function multiply() {
+  if (!arguments.length) return 0;
+
+  let resTask1 = 1;
+  for (let i = 1; i < arguments.length; i++) {
+    if (!isNaN(arguments[i])) {
+      resTask1 *= arguments[i];
+    }
+  }
+  console.log(resTask1);
+  return resTask1;
+}
+
+multiply(1, 2, 3, 7, "str", 2);
+
+// 15.2. Создать функцию, которая принимает строку и возвращает строку-перевертыш: reverseString(‘test’) // “tset”.
+
+function reverseString(str) {
+  let resTask2 = str
+    .split("")
+    .reverse()
+    .join("");
+  console.log(resTask2);
+  return resTask2;
+}
+
+reverseString("test hello");
+
+// 15.3. Создать функцию, которая в качестве аргумента принимает строку из букв и возвращает строку, где каждый символ разделен пробелом и заменен на юникод-значение символа:
+// getCodeStringFromText(‘hello’) // “104 101 108 108 111”
+// подсказка: для получения кода используйте специальный метод
+
+function getCodeStringFromText(str) {
+  let strSpace = str.split("").join(" ");
+
+  console.log(strSpace);
+}
+
+getCodeStringFromText("hello");
+
+// 15.4. Создать функцию угадай число. Она принимает число от 1-10 (обязательно проверить что число не больше 10 и не меньше 0). Генерирует рандомное число от 1-10 и сравнивает с переданным числом если они совпали то возвращает “Вы выиграли” если нет то “Вы не угадали ваше число 8 а выпало число 5”. Числа в строке указаны как пример вы подставляете реальные числа.
+
+function guessNumber(num) {
+  if (num < 1 || num > 10) {
+    console.log("Число повинно бути не більше 10 та не менше 0");
+    return;
+  }
+
+  const ramdom = Math.ceil(Math.random() * 10);
+  ramdom === num ?
+    console.log("Ви виграли!!!") :
+    console.log(`Ви не вгадали. Ваше число: ${num}, а випало: ${ramdom}`);
+}
+
+guessNumber(8);
+
+// 15.5. Создать функцию, которая принимает число n и возвращает массив, заполненный числами от 1 до n: getArray(10); // [1,2,3,4,5,6,7,8,9,10]
+
+
+
+// 15.6. Создать функцию, которая принимает массив, а возвращает новый массив с дублированными элементами входного массива:
+// doubleArray([1,2,3]) // [1,2,3,1,2,3]
+
+
+
+// 15.7. Создать функцию, которая принимает произвольное (любое) число массивов и удаляет из каждого массива первый элемент, а возвращает массив из оставшихся значений:
+// changeCollection([1,2,3], [‘a’, ’b’, ‘c’]) → [ [2,3], [‘b’, ‘c’] ], changeCollection([1,2,3]) → [ [2,3] ] и т.д.
+
+function changeCollection() {
+  let resTask7 = [];
+  for (let i = 0; i < arguments.length; i++) {
+    arguments[i].shift();
+    resTask7.push(arguments[i]);
+  }
+  console.log(resTask7);
+  return resTask7;
+}
+
+changeCollection([2, 5, 6], [4, 7, 9, 10]);
+
+// 15.8. Создать функцию которая принимает массив пользователей, поле на которое хочу проверить и значение на которое хочу проверять. Проверять что все аргументы переданы. Возвращать новый массив с пользователями соответсвующие указанным параметрам.
+// funcGetUsers(users, “gender”, “male”); // [ {name: “Denis”, age: “29”, gender: “male”} , {name: “Ivan”, age: “20”, gender: “male”} ]
+
+const users = [{
+    name: "Denis",
+    age: 29,
+    gender: "male"
+  },
+  {
+    name: "Ivan",
+    age: 20,
+    gender: "male"
+  }
+];
+
+function funcGetUsers(arr, key, value) {
+  let resTask8 = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i][key] === value) {
+      resTask8.push(arr[i]);
+    }
+  }
+  console.log(resTask8);
+  return resTask8;
+}
+
+funcGetUsers(users, "age", 20);
