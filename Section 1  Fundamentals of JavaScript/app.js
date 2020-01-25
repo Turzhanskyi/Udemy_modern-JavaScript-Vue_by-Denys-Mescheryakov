@@ -59,52 +59,159 @@
  * 4. Если мы хотим использовать статическую типизацию мы можем использовать TypeScript или Flow
  */
 
+
+
 //                              Тема 6. Переменные
 
 
+
 // var, let, const
-var name = 'Denis';
-console.log(name);
-name = 'Den';
-console.log(name);
+// var name = 'Denis';
+// console.log(name);
+// name = 'Den';
+// console.log(name);
 
-var age;
-console.log(age);
-age = 30;
-console.log(age);
+// var age;
+// console.log(age);
+// age = 30;
+// console.log(age);
 
-var $name = 'Ivan';
-var _name = 'Maks';
+// var $name = 'Ivan';
+// var _name = 'Maks';
 // var 1name = '';
 
-var userAge = 30;
-var user_age = 20;
-var UserAge = 40;
-var userage = 10;
+// var userAge = 30;
+// var user_age = 20;
+// var UserAge = 40;
+// var userage = 10;
 
-var car;
-console.log(car);
-car = 'bmw';
+// var car;
+// console.log(car);
+// car = 'bmw';
 // var car = 'audi';
-console.log(car);
-console.clear();
+// console.log(car);
+// console.clear();
 
 // console.log(nickname);
-let nickname = 'dmgame';
-nickname = 'dm';
-console.log(nickname);
+// let nickname = 'dmgame';
+// nickname = 'dm';
+// console.log(nickname);
 
-const firstName = 'Tom';
+// const firstName = 'Tom';
 // firstName = 'Jhon';
 // const lastName;
 
-console.log(firstName);
+// console.log(firstName);
 
-const user = {
-  name: 'Denis',
-  age: 30
-};
+// const user = {
+//   name: 'Denis',
+//   age: 30
+// };
 
-user.age = 25;
+// user.age = 25;
 
-console.log(user);
+// console.log(user);
+
+
+
+//                              Тема 7. Преобразование типов
+
+
+
+let value;
+
+// Number to string
+value = String(10);
+value = String(10 + 40);
+value = (40).toString();
+
+// Boolean to string
+value = String(false);
+// Array to string
+value = String([1, 2, 3]);
+// Object to string
+value = String({
+  name: 'Denis'
+});
+
+value = 30 + '' + undefined;
+value = 30 * '5';
+value = false + undefined;
+
+// String to number
+value = Number('23');
+value = Number(false);
+value = Number(null);
+value = Number('false');
+value = Number([1, 2, 3]);
+
+value = parseInt('200px');
+value = parseFloat('200.212px');
+
+// Boolean
+value = Boolean('hello');
+value = Boolean('');
+value = Boolean(-100);
+value = Boolean(0);
+value = Boolean(undefined);
+value = Boolean(null);
+value = Boolean({});
+value = Boolean([]);
+
+console.log(value);
+console.log(typeof value);
+
+let d = new Date();
+
+// get string representation
+let str = d.toString(); // 'Wed Jan 17 2018 16:15:42'
+console.log(str);
+
+// get numeric representation, num of milliseconds since Unix epoch
+let num = d.valueOf(); // 1516198542525
+console.log(num);
+
+// compare with a string representation
+// true because d is converted to same string
+console.log(d == str); // true
+
+// compare with numeric representation
+// false, because d is not converted to a number via valueOf()
+console.log(d == num); // false
+
+// Result is 'Wed Jan 17 2018 16:15:42Wed Jan 17 2018 16:15:42'
+// '+' same to '==' triggers default conversion mode
+console.log(d + d);
+
+// Result is 0, since '-' operator explicitly triggers numeric conversion, not a default one
+console.log(d - d);
+
+function ToPrimitive(input, preferredType) {
+
+  switch (preferredType) {
+    case Number:
+      return toNumber(input);
+      break;
+    case String:
+      return toString(input);
+      break
+    default:
+      return toNumber(input);
+  }
+
+  function isPrimitive(value) {
+    return value !== Object(value);
+  }
+
+  function toString() {
+    if (isPrimitive(input.toString())) return input.toString();
+    if (isPrimitive(input.valueOf())) return input.valueOf();
+    throw new TypeError();
+  }
+
+  function toNumber() {
+    if (isPrimitive(input.valueOf())) return input.valueOf();
+    if (isPrimitive(input.toString())) return input.toString();
+    throw new TypeError();
+  }
+}
