@@ -664,27 +664,103 @@
 //                              Тема 16. Методы массивов
 
 
-const numArr = [2, 32, 1234, 54, 323];
+// const numArr = [2, 32, 1234, 54, 323];
 
-let value;
+// let value;
 
-value = numArr.length;
+// value = numArr.length;
 // numArr.length = 0;
 // numArr.length = 100;
 
-value = Array.isArray(numArr);
-value = numArr[2];
-numArr[2] = 12;
-value = numArr.indexOf(32);
+// value = Array.isArray(numArr);
+// value = numArr[2];
+// numArr[2] = 12;
+// value = numArr.indexOf(32);
 
-value = numArr.push(100);
-value = numArr.pop();
-value = numArr.unshift(111);
-value = numArr.shift();
-value = numArr.slice(0, 2);
-value = numArr.splice(1, 0, "one", "two");
-value = numArr.reverse();
-value = numArr.concat(1, 2);
-value = numArr.join(" ");
-value = "hello world".split(" ");
-console.log(value, numArr);
+// value = numArr.push(100);
+// value = numArr.pop();
+// value = numArr.unshift(111);
+// value = numArr.shift();
+// value = numArr.slice(0, 2);
+// value = numArr.splice(1, 0, "one", "two");
+// value = numArr.reverse();
+// value = numArr.concat(1, 2);
+// value = numArr.join(" ");
+// value = "hello world".split(" ");
+// console.log(value, numArr);
+
+
+
+//                              Тема 17. Функции высшего порядка. Callback.
+
+
+function getThis() {
+  console.log(this);
+}
+// getThis();
+// window.getThis();
+// console.log(window.getThis);
+
+function getPrice(currency = "$") {
+  console.log(currency + this.price);
+  return this;
+}
+
+function getName() {
+  console.log(this.name);
+  return this;
+}
+
+const prod1 = {
+  name: "Intel",
+  price: 100,
+  getPrice,
+  getName() {
+    console.log(this.name);
+  },
+  info: {
+    information: ["2.3ghz"],
+    getInfo: function() {
+      console.log(this);
+    }
+  }
+};
+// prod1.getPrice();
+// prod1.info.getInfo();
+// prod1.getName();
+
+const prod2 = {
+  name: "AMD",
+  price: 50,
+  getPrice
+};
+
+prod2.getName = prod1.getName;
+// prod2.getPrice();
+
+// prod2.getName();
+
+let str = "Hello world";
+const reversStr = str
+  .split("") // ['H', 'e'...]
+  .reverse() // ['d', 'l'...]
+  .join(""); // 'dlrow olleH'
+// console.log(reversStr);
+
+const prod3 = {
+  name: "ARM",
+  price: 200,
+  getPrice
+  // getName,
+};
+
+// getPrice.call(prod3, '*');
+// getPrice.apply(prod3, ['*']);
+
+// prod3
+//   .getName() // prod3
+//   .getPrice(); // prod3.getPrice()
+
+const getPriceBind = prod3.getPrice.bind(prod3, "*");
+console.log(getPriceBind);
+setTimeout(getPriceBind, 1000);
