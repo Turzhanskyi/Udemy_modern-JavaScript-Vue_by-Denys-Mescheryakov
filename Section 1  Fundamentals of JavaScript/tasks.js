@@ -737,33 +737,32 @@
 // каждый элемент которого будет хранить информацию о числе и его четности:
 // [{digit: 1, odd: true}, {digit: 2, odd: false}, {digit: 3, odd: true}...]
 
-const arr = [1, 2, 3, 4, 5, 6, 7, 8];
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8];
 
-const newArr = arr.map(num => ({
-  digit: num,
-  odd: num % 2 !== 0,
-}));
+// const newArr = arr.map(num => ({
+//   digit: num,
+//   odd: num % 2 !== 0,
+// }));
 
-console.log(newArr);
+// console.log(newArr);
 
 
 // 20.2. Проверить, содержит ли массив [12, 4, 50, 1, 0, 18, 40] элементы, равные нулю. Если да - вернуть true.
 
-const arr1 = [12, 4, 50, 1, 0, 18, 40];
+// const arr1 = [12, 4, 50, 1, 0, 18, 40];
 
-function isZero(num) {
-  return num === 0;
-}
+// function isZero(num) {
+//   return num === 0;
+// }
 
-console.log(arr1.some(isZero));
+// console.log(arr1.some(isZero));
 
 
 // 20.3. Проверить, содержит ли массив ['yes', 'hello', 'no', 'easycode', 'what'] хотя бы одно слово длиной больше 3х букв. Если да - вернуть true
 
-const arr2 = ['yes', 'hello', 'no', 'easycode', 'what'];
+// const arr2 = ['yes', 'hello', 'no', 'easycode', 'what'];
 
-
-console.log(arr2.some(arr2.lenght > 3));
+// console.log(arr2.some(arr2.lenght > 3));
 
 
 // 20.4. Дан массив объектов, где каждый объект содержит информацию о букве и месте её положения в строке {буква: “a”, позиция_в_предложении: 1}:
@@ -774,67 +773,67 @@ console.log(arr2.some(arr2.lenght > 3));
 // строку, основываясь на index каждой буквы. Например:
 // [{char:"H",index:0}, {char:"i",index: 1}, {char:"!",index:2}] → “Hi!”
 
-const stringArr = [{
-    char: "a",
-    index: 12
-  }, {
-    char: "w",
-    index: 8
-  }, {
-    char: "Y",
-    index: 10
-  }, {
-    char: "p",
-    index: 3
-  }, {
-    char: "p",
-    index: 2
-  },
-  {
-    char: "N",
-    index: 6
-  }, {
-    char: " ",
-    index: 5
-  }, {
-    char: "y",
-    index: 4
-  }, {
-    char: "r",
-    index: 13
-  }, {
-    char: "H",
-    index: 0
-  },
-  {
-    char: "e",
-    index: 11
-  }, {
-    char: "a",
-    index: 1
-  }, {
-    char: " ",
-    index: 9
-  }, {
-    char: "!",
-    index: 14
-  }, {
-    char: "e",
-    index: 7
-  }
-];
+// const stringArr = [{
+//     char: "a",
+//     index: 12
+//   }, {
+//     char: "w",
+//     index: 8
+//   }, {
+//     char: "Y",
+//     index: 10
+//   }, {
+//     char: "p",
+//     index: 3
+//   }, {
+//     char: "p",
+//     index: 2
+//   },
+//   {
+//     char: "N",
+//     index: 6
+//   }, {
+//     char: " ",
+//     index: 5
+//   }, {
+//     char: "y",
+//     index: 4
+//   }, {
+//     char: "r",
+//     index: 13
+//   }, {
+//     char: "H",
+//     index: 0
+//   },
+//   {
+//     char: "e",
+//     index: 11
+//   }, {
+//     char: "a",
+//     index: 1
+//   }, {
+//     char: " ",
+//     index: 9
+//   }, {
+//     char: "!",
+//     index: 14
+//   }, {
+//     char: "e",
+//     index: 7
+//   }
+// ];
 
-function getStringRFromArray(arr) {
-  if (!Array.isArray(arr)) {
-    return console.log('it is not an array')
-  }
-  return arr
-    .slice()
-    .sort((prev, next) => prev.index - next.index)
-    .reduce((acc, current) => (acc += current.char), '');
-}
+// function getStringRFromArray(arr) {
+//   if (!Array.isArray(arr)) {
+//     return console.log('it is not an array')
+//   }
+//   return arr
+//     .slice()
+//     .sort((prev, next) => prev.index - next.index)
+//     .reduce((acc, current) => (acc += current.char), '');
+// }
 
-console.log(getStringRFromArray(stringArr));
+// console.log(getStringRFromArray(stringArr));
 
 // 20.5. Отсортируйте массив массивов так, чтобы вначале располагались наименьшие массивы (размер массива определяется его длиной): [  [14, 45],  [1],  ['a', 'c', 'd']  ] → [ [1], [14, 45], ['a', 'c', 'd'] ]
 
@@ -863,41 +862,85 @@ console.log(getStringRFromArray(stringArr));
 
 // filterCollection(products, 15, 30) → [{...price: 15}, {...price: 18.9}, {...price: 19}, {...price: 25}]
 
-let products = [{
-    title: 'prod1',
-    price: 5.2
-  }, {
-    title: 'prod2',
-    price: 0.18
-  },
-  {
-    title: 'prod3',
-    price: 15
-  }, {
-    title: 'prod4',
-    price: 25
-  },
-  {
-    title: 'prod5',
-    price: 18.9
-  }, {
-    title: 'prod6',
-    price: 8
-  },
-  {
-    title: 'prod7',
-    price: 19
-  }, {
-    title: 'prod8',
-    price: 63
-  }
-];
+// let products = [{
+//     title: 'prod1',
+//     price: 5.2
+//   }, {
+//     title: 'prod2',
+//     price: 0.18
+//   },
+//   {
+//     title: 'prod3',
+//     price: 15
+//   }, {
+//     title: 'prod4',
+//     price: 25
+//   },
+//   {
+//     title: 'prod5',
+//     price: 18.9
+//   }, {
+//     title: 'prod6',
+//     price: 8
+//   },
+//   {
+//     title: 'prod7',
+//     price: 19
+//   }, {
+//     title: 'prod8',
+//     price: 63
+//   }
+// ];
 
-function filterCollection(arr, min, max) {
-  return arr
-    .slice()
-    .sort((prev, next) => prev.price - next.price)
-    .filter(product => product.price >= min && product.price <= max);
-}
+// function filterCollection(arr, min, max) {
+//   return arr
+//     .slice()
+//     .sort((prev, next) => prev.price - next.price)
+//     .filter(product => product.price >= min && product.price <= max);
+// }
 
-console.log(filterCollection(products, 15, 30));
+// console.log(filterCollection(products, 15, 30));
+
+
+//                              Тема 21. Что такое замыкание
+
+
+
+// 21.1. Создайте функцию которая бы умела делать:
+// minus(10)(6); // 4
+// minus(5)(6); // -1
+// minus(10)(); // 10
+// minus()(6); // -6
+// minus()(); // 0
+// Подсказка, функция minus должна возвращать другую функцию.
+
+
+// 21.2. Реализовать функцию, которая умножает и умеет запоминать возвращаемый результат между вызовами:
+// function multiplyMaker ...
+// const multiply = multiplyMaker(2);
+// multiply(2); // 4 (2 * 2)
+// multiply(1); // 4 (4 * 1)
+// multiply(3); // 12 (4 * 3)
+// multiply(10); // 120 (12 * 10)
+
+
+// 21.3. Реализовать модуль, который работает со строкой и имеет методы:
+// a. установить строку
+// i. если передано пустое значение, то установить пустую строку
+// ii. если передано число, число привести к строке
+// b. получить строку
+// c. получить длину строки
+// d. получить строку-перевертыш
+// Пример:
+// модуль.установитьСтроку(‘abcde’);
+// модуль.получитьСтроку(); // ‘abcde’
+// модуль.получитьДлину(); // 5
+
+
+// 21.4. Создайте модуль “калькулятор”, который умеет складывать, умножать, вычитать, делить и возводить в степень. Конечное значение округлить до двух знаков после точки (значение должно храниться в обычной переменной, не в this).
+// модуль.установитьЗначение(10); // значение = 10
+// модуль.прибавить(5); // значение += 5
+// модуль.умножить(2); // значение *= 2
+// модуль.узнатьЗначение(); // вывести в консоль 30 (здесь надо округлить)
+// Также можно вызывать методы цепочкой:
+// модуль.установитьЗначение(10).вСтепень(2).узнатьЗначение(); // 100
