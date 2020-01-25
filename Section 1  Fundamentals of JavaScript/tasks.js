@@ -562,15 +562,15 @@
 // прямоугольника, а также может посчитать площадь фигуры:
 // const rectangle = {width:..., height:..., getSquare:...};
 
-const rectangle = {
-  width: 5,
-  height: 15,
-  getSquare: function () {
-    return this.width * this.height;
-  }
-}
+// const rectangle = {
+//   width: 5,
+//   height: 15,
+//   getSquare: function () {
+//     return this.width * this.height;
+//   }
+// }
 
-console.log(rectangle.getSquare());
+// console.log(rectangle.getSquare());
 
 // 18.2. Создать объект, у которого будет цена товара и его скидка, а также
 // два метода: для получения цены и для расчета цены с учетом скидки:
@@ -581,22 +581,22 @@ console.log(rectangle.getSquare());
 // price.getPrice(); // 10
 // price.getPriceWithDiscount(); // 8.5
 
-const price = {
-  price: 10,
-  discount: '15%',
-  getPrice: function () {
-    return price.price
-  },
-  getPriceWithDiscount: function () {
-    let price = this.price;
-    let discount = price * Number.parseInt(this.discount) / 100;
-    console.log(discount);
-    return price - discount;
-  }
-}
+// const price = {
+//   price: 10,
+//   discount: '15%',
+//   getPrice: function () {
+//     return price.price
+//   },
+//   getPriceWithDiscount: function () {
+//     let price = this.price;
+//     let discount = price * Number.parseInt(this.discount) / 100;
+//     console.log(discount);
+//     return price - discount;
+//   }
+// }
 
-console.log(price.getPrice());
-console.log(price.getPriceWithDiscount());
+// console.log(price.getPrice());
+// console.log(price.getPriceWithDiscount());
 
 // 18.3. Создать объект, у которого будет поле высота и метод “увеличить
 // высоту на один”. Метод должен возвращать новую высоту:
@@ -604,16 +604,16 @@ console.log(price.getPriceWithDiscount());
 // object.inc(); // придумать свое название для метода
 // object.height; // 11;
 
-const object = {
-  height: 10,
-  getHeightPlusOne: function () {
-    return this.height += 1;
-  }
-}
+// const object = {
+//   height: 10,
+//   getHeightPlusOne: function () {
+//     return this.height += 1;
+//   }
+// }
 
-console.log(object.height);
-console.log(object.getHeightPlusOne());
-console.log(object.height);
+// console.log(object.height);
+// console.log(object.getHeightPlusOne());
+// console.log(object.height);
 
 // 18.4. Создать объект “вычислитель”, у которого есть числовое свойство
 // “значение” и методы “удвоить”, “прибавить один”, “отнять один”.
@@ -627,18 +627,18 @@ console.log(object.height);
 // numerator.double().plusOne().plusOne().minusOne();
 // numerator.value // 3
 
-const numerator = {
-  value: 1,
-  double: function () {
-    return this.value *= 2
-  },
-  plusOne: function () {
-    return this.value += 1
-  },
-  minusOne: function () {
-    return this.value -= 1
-  }
-}
+// const numerator = {
+//   value: 1,
+//   double: function () {
+//     return this.value *= 2
+//   },
+//   plusOne: function () {
+//     return this.value += 1
+//   },
+//   minusOne: function () {
+//     return this.value -= 1
+//   }
+// }
 // ????????????  console.log(numerator.double().plusOne().plusOne().minusOne());
 // console.log(numerator.value);
 
@@ -648,15 +648,15 @@ const numerator = {
 // объект должен содержать метод для получения общей стоимости
 // всех товаров (цена * количество продуктов)
 
-let prod1 = {
-  price: 45,
-  counts: 30,
-  getTotalPrice() {
-    return this.price * this.counts;
-  }
-}
+// let prod1 = {
+//   price: 45,
+//   counts: 30,
+//   getTotalPrice() {
+//     return this.price * this.counts;
+//   }
+// }
 
-console.log(prod1.getTotalPrice());
+// console.log(prod1.getTotalPrice());
 
 // 18.6. Создать объект из предыдущей задачи. Создать второй объект,
 // который описывает количество деталей и цену за одну деталь. Для
@@ -664,12 +664,12 @@ console.log(prod1.getTotalPrice());
 // нельзя создавать новые функции и методы. Для этого
 // “позаимствуйте” метод из предыдущего объекта.
 
-let prod2 = {
-  price: 5,
-  counts: 100
-}
+// let prod2 = {
+//   price: 5,
+//   counts: 100
+// }
 
-console.log(prod1.getTotalPrice.call(prod2));
+// console.log(prod1.getTotalPrice.call(prod2));
 
 // 18.7. Даны объект и функция:
 // let sizes = {width: 5, height: 10},
@@ -677,15 +677,15 @@ console.log(prod1.getTotalPrice.call(prod2));
 // Не изменяя функцию или объект, получить результат функции
 // getSquare для объекта sizes
 
-let sizes = {
-    width: 5,
-    height: 10
-  },
-  getSquare = function () {
-    return this.width * this.height
-  }
+// let sizes = {
+//     width: 5,
+//     height: 10
+//   },
+//   getSquare = function () {
+//     return this.width * this.height
+//   }
 
-console.log(getSquare.call(sizes));
+// console.log(getSquare.call(sizes));
 
 // 18.8. let element = {
 //   height: 25,
@@ -696,12 +696,33 @@ console.log(getSquare.call(sizes));
 // Измените функцию getElementHeight таким образом, чтобы можно
 // было вызвать getElementHeight() и получить 25.
 
-let element = {
-  height: 25,
-  getHeight: function () {
-    return this.height;
-  }
+// let element = {
+//   height: 25,
+//   getHeight: function () {
+//     return this.height;
+//   }
+// }
+
+// let getElementHeight = element.getHeight.bind(element);
+// console.log(getElementHeight());
+
+
+
+//                              Тема 19. Стрелочные функции
+
+
+
+// 19.1. Переделать функцию с использованием функции-стрелки (в методе reduce тоже использовать arrow function):
+
+function sum() {
+  const params = Array.prototype.slice.call(arguments);
+
+  if (!params.length) return 0;
+
+  return params.reduce(function (prev, next) {
+    return prev + next;
+  });
 }
 
-let getElementHeight = element.getHeight.bind(element);
-console.log(getElementHeight());
+console.log(sum(1, 2, 3, 4));
+console.log(sum());
