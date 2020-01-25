@@ -46,47 +46,69 @@
 
 // 10.1. Получить первую и последнюю буквы строки
 
-let string = 'some test string';
-
-let task1 = `перша буква ${string[0]}, а остання - ${string[string.length - 1]}`;
-console.log(task1);
+// let string = 'some test string';
+// let task1 = `перша буква ${string[0]}, а остання - ${string[string.length - 1]}`;
+// console.log(task1);
 
 // 10.2. Сделать первую и последнюю буквы в верхнем регистре
 
-let task2 = string[0].toUpperCase() + string.slice(1, -1) + string[string.length - 1].toUpperCase();
-console.log(task2);
+// let task2 = string[0].toUpperCase() + string.slice(1, -1) + string[string.length - 1].toUpperCase();
+// console.log(task2);
 
 // 10.3. Найти положение слова ‘string’ в строке
 
-let task3 = string.indexOf('string');
-console.log(task3);
+// let task3 = string.indexOf('string');
+// console.log(task3);
 
 // 10.4. Найти положение второго пробела (“вручную” ничего не считать)
 
-let task4 = string.lastIndexOf(' ');
-console.log(task4);
+// let task4 = string.lastIndexOf(' ');
+// console.log(task4);
 
 // 10.5. Получить строку с 5-го символа длиной 4 буквы
 
-let task5 = string.substr(5, 4);
-console.log(task5);
+// let task5 = string.substr(5, 4);
+// console.log(task5);
 
 // 10.6. Получить строку с 5-го по 9-й символы
 
-let task6 = string.substring(5, 9);
-console.log(task6);
+// let task6 = string.substring(5, 9);
+// console.log(task6);
 
 // 10.7. Получить новую строку из исходной путем удаления последних 6-и символов
 // (то есть исходная строка без последних 6и символов)
 
-let task7 = string.substring(0, (string.length - 6));
-console.log(task7);
+// let task7 = string.substring(0, (string.length - 6));
+// console.log(task7);
 
-
-// 8. Из двух переменных a=20 и b=16 получить переменную string, в которой будет
+// 10.8. Из двух переменных a=20 и b=16 получить переменную string, в которой будет
 // содержаться текст “2016”
 
-let a = 20;
-let b = 16;
-string = a.toString() + b.toString();
-console.log(string);
+// let a = 20;
+// let b = 16;
+// string = a.toString() + b.toString();
+// console.log(string);
+
+
+
+//                              Тема 11. Введение в объекты
+
+
+
+// 11.1. Создать объект с полем product, равным ‘iphone’
+// 11.2. Добавить в объект поле price, равное 1000 и поле currency, равное ‘dollar’
+// 11.3. Добавить поле details, которое будет содержать объект с полями model и color
+// Все поля добавлять по очереди, не создавать сразу готовый объект со всеми полями.
+
+let task
+task = {
+  product: 'iphone'
+};
+
+task.price = 1000;
+task.currency = 'dollar';
+task.details = {
+  model: 'I10',
+  color: 'black'
+};
+console.log(task);

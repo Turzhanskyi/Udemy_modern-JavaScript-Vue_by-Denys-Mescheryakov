@@ -299,31 +299,76 @@
 
 
 
-const firstName = 'Denis';
-const lastName = 'Mescheryakov';
-const age = 30;
+// const firstName = 'Denis';
+// const lastName = 'Mescheryakov';
+// const age = 30;
 
-let str;
+// let str;
 
-str = 'Hello my name is ' + firstName + ' ' + lastName;
+// str = 'Hello my name is ' + firstName + ' ' + lastName;
 
-str = '<ul>' +
-  '<li>First name: ' + firstName + '</li>' +
-  '<li>Last name: ' + lastName + '</li>' +
-  '<li>Age: ' + age + '</li>' +
-  '</ul>';
+// str = '<ul>' +
+//   '<li>First name: ' + firstName + '</li>' +
+//   '<li>Last name: ' + lastName + '</li>' +
+//   '<li>Age: ' + age + '</li>' +
+//   '</ul>';
 
 // console.log(str);
 
 // ES6
-str = `
-  <ul>
-    <li>First name: ${ firstName }</li>
-    <li>Last name: ${ lastName }</li>
-    <li>Age: ${ age }</li>
-    <li>Math.random: ${ Math.random() }</li>
-    <li>5 + 5: ${ 5 + 5 }</li>
-  </ul>
-`;
+// str = `
+//   <ul>
+//     <li>First name: ${ firstName }</li>
+//     <li>Last name: ${ lastName }</li>
+//     <li>Age: ${ age }</li>
+//     <li>Math.random: ${ Math.random() }</li>
+//     <li>5 + 5: ${ 5 + 5 }</li>
+//   </ul>
+// `;
 
-document.body.innerHTML = str;
+// document.body.innerHTML = str;
+
+
+
+//                              Тема 11. Введение в объекты
+
+
+
+const user = {
+  firstName: 'Denis',
+  age: 30,
+  isAdmin: true,
+  email: 'test@test.com',
+  'user-address': {
+    city: 'Kharkiv'
+  },
+  skills: ['html', 'css', 'js']
+};
+
+let value;
+let prop = 'skills';
+
+value = user.firstName;
+value = user['isAdmin'];
+value = user['user-address'];
+value = user['user-address'].city;
+value = user['user-address']['city'];
+value = user[prop][0];
+
+user.firstName = 'Den';
+
+value = user.firstName;
+
+user.info = 'Some info';
+
+value = user.info;
+
+user['user-address'].city = 'Kiev';
+user['user-address'].country = 'Ukraine';
+
+console.log(user.plan);
+user.plan = {};
+user.plan.basic = 'basic';
+
+console.log(value);
+console.log(user);
