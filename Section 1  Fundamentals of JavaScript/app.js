@@ -617,44 +617,74 @@
 
 
 
-(function(msg) {
-  console.log(msg);
-  function sayHello(firstName = "Default", lastName = "Default") {
-    console.log(firstName, lastName);
-    console.log("Hello world");
-    return `Hello ${firstName} ${lastName}`;
-  }
-  
-  // let res = sayHello("Denis", "Mescheryakov");
-  // let res2 = sayHello("Dima", "Mescheryakov") + "!";
-  // let res3 = sayHello();
-  // console.log(res3);
-  
-  // let x = 10;
-  
-  // function foo(x) {
-  //   x = 20;
-  //   console.log(x);
-  //   return x;
-  // }
-  
-  // foo();
-  
-  // console.log(x);
-  
-  // const user = {
-  //   name: "Denis",
-  //   age: 30
-  // };
-  
-  // function getObj(obj) {
-  //   obj.name = "Den";
-  // }
-  
-  // getObj(user);
-  // console.log(user);
-  
-  const square = function(x) {
-    return x * x;
-  };
-})("Hello world");
+// (function(msg) {
+//   console.log(msg);
+//   function sayHello(firstName = "Default", lastName = "Default") {
+//     console.log(firstName, lastName);
+//     console.log("Hello world");
+//     return `Hello ${firstName} ${lastName}`;
+//   }
+
+// let res = sayHello("Denis", "Mescheryakov");
+// let res2 = sayHello("Dima", "Mescheryakov") + "!";
+// let res3 = sayHello();
+// console.log(res3);
+
+// let x = 10;
+
+// function foo(x) {
+//   x = 20;
+//   console.log(x);
+//   return x;
+// }
+
+// foo();
+
+// console.log(x);
+
+// const user = {
+//   name: "Denis",
+//   age: 30
+// };
+
+// function getObj(obj) {
+//   obj.name = "Den";
+// }
+
+// getObj(user);
+// console.log(user);
+
+//   const square = function(x) {
+//     return x * x;
+//   };
+// })("Hello world");
+
+
+
+//                              Тема 16. Методы массивов
+
+
+const numArr = [2, 32, 1234, 54, 323];
+
+let value;
+
+value = numArr.length;
+// numArr.length = 0;
+// numArr.length = 100;
+
+value = Array.isArray(numArr);
+value = numArr[2];
+numArr[2] = 12;
+value = numArr.indexOf(32);
+
+value = numArr.push(100);
+value = numArr.pop();
+value = numArr.unshift(111);
+value = numArr.shift();
+value = numArr.slice(0, 2);
+value = numArr.splice(1, 0, "one", "two");
+value = numArr.reverse();
+value = numArr.concat(1, 2);
+value = numArr.join(" ");
+value = "hello world".split(" ");
+console.log(value, numArr);
