@@ -95,7 +95,7 @@ const tasks = [{
       '--input-focus-box-shadow': '0 0 0 0.2rem rgba(141, 143, 146, 0.25)',
     },
   };
-  let lastSelectedTheme = 'default';
+  let lastSelectedTheme = localStorage.getItem('app_theme') || 'default';
 
 
   // Elements UI
@@ -106,14 +106,12 @@ const tasks = [{
   const themeSelect = document.getElementById('themeSelect'); // шукаємо клас форми вибору теми з id themeSelect
 
 
-
-
   // Events
+  setTheme(lastSelectedTheme); // викликаємо функцію зміни теми
   renderAllTasks(objOfTasks); // викликаємо функцію renderAllTasks для виведення усіх завдань на html сторінку 
   form.addEventListener('submit', onFormsSubmitHandler); // викликаємо функцію onFormsSubmitHandler, яка оброблятиме нашу форм
   listContainer.addEventListener('click', onDeleteHandler); // викликаємо функцію onDeleteHandler, яка видалятиме завдання
   themeSelect.addEventListener('change', onThemeSelectHandler); // викликаємо функцію onThemeSelectHandler, що обробляє події зміни теми
-
 
 
   // Функція renderAllTasks, що виводить усі завдання на сторінку
@@ -248,6 +246,7 @@ const tasks = [{
     }
     setTheme(selectedTheme);
     lastSelectedTheme = selectedTheme;
+    localStorage.setItem('app_theme', selectedTheme);
   };
 
   // Функція setTheme, що встановлює тему
