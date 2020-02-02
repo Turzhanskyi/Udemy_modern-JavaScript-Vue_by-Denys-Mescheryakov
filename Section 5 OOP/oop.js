@@ -49,7 +49,7 @@ const obj = Object.create(protoForObj, {
   },
 });
 
-console.log(obj);
+// console.log(obj);
 
 
 function User(firstName, lastName) {
@@ -67,8 +67,8 @@ User.prototype.sayHallo = function () {
 
 const user = new User('Vitalii', 'Turzhanskyi');
 
-console.log(user);
-console.log(user.sayHallo());
+// console.log(user);
+// console.log(user.sayHallo());
 
 // Customer
 function Customer(firstName, lastName, membership) {
@@ -86,6 +86,34 @@ Customer.prototype.getMembership = function () {
 
 const customer = new Customer('Ivan', 'Ivanov', 'basic');
 
-console.log(customer);
-console.log(customer.sayHallo());
-console.log(customer.getMembership());
+// console.log(customer);
+// console.log(customer.sayHallo());
+// console.log(customer.getMembership());
+
+
+
+// ES6
+const methodName = 'setPrice';
+class ProductES {
+  constructor(brand, price, discount) {
+    this.brand = brand;
+    this.price = price;
+    this.discount = discount;
+  }
+  getPriceWithDiscount() {
+    return (this.price * (100 - this.discount)) / 100;
+  };
+
+  [methodName](newPrice) {
+    this.price = newPrice;
+  }
+
+  // статичний метод
+  static plus(x, y) {
+    return x + y;
+  }
+}
+
+const newProduct = new ProductES('Samsung', 200, 10);
+
+console.log(newProduct);
