@@ -116,4 +116,36 @@ class ProductES {
 
 const newProduct = new ProductES('Samsung', 200, 10);
 
-console.log(newProduct);
+// console.log(newProduct);
+
+
+
+
+
+// Наслідування в ES6
+class UserES {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+class CustomerES extends UserES {
+  constructor(firstName, lastName, membership) {
+    super(firstName, lastName);
+    this.membership = membership;
+  }
+
+  getFullName() {
+    const parentRes = super.getFullName();
+    return `${parentRes}, membership: ${this.membership}`;
+  }
+}
+
+const customerEs = new CustomerES('Vitalii', 'turzhanskyi', 'basic');
+
+console.log(customerEs);
+console.log(customerEs.getFullName());
